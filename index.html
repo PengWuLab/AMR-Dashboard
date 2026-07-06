@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ARG Detection Map Portal</title>
   <style>
-    /* 1. 布局重置：使用 Flexbox 确保导航栏与内容不重叠 */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+
     html, body {
       width: 100%;
       height: 100%;
-      overflow: hidden; 
+      overflow: hidden;
       font-family: 'Inter', -apple-system, sans-serif;
       background: #f4f7fb;
     }
@@ -23,10 +22,9 @@
       width: 100vw;
     }
 
-    /* 2. 导航栏样式：固定高度，不遮挡下方 */
     .navbar {
-      flex: 0 0 80px; /* 导航栏占据固定 80px 高度 */
-      background: #0f766e; /* 绿色调 */
+      flex: 0 0 80px;
+      background: #0f766e;
       color: white;
       display: flex;
       align-items: center;
@@ -55,7 +53,6 @@
       opacity: 0.85;
     }
 
-    /* 3. 切换按钮：取消 <a> 链接，改用纯按钮切换 */
     .nav-right {
       display: flex;
       gap: 12px;
@@ -82,9 +79,8 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    /* 4. 内容区域：iframe 容器占据剩余高度 */
     .content-frame-container {
-      flex: 1; /* 自动撑满剩下的屏幕空间 */
+      flex: 1;
       position: relative;
     }
 
@@ -95,11 +91,11 @@
       width: 100%;
       height: 100%;
       border: none;
-      display: none; /* 默认隐藏所有 iframe */
+      display: none;
     }
 
     iframe.active {
-      display: block; /* 只有选中的 active 标签显示 */
+      display: block;
     }
   </style>
 </head>
@@ -122,19 +118,16 @@
     </header>
 
     <main class="content-frame-container">
-      <iframe id="tab-map" class="active" src="./ARG_Detection_Map.html"></iframe>
-      
+      <iframe id="tab-map" class="active" src="https://1vaaa-arg-detection-map.hf.space"></iframe>
       <iframe id="tab-predictor" src="https://1vaaa-saurs-ast-predictor.hf.space"></iframe>
     </main>
   </div>
 
   <script>
     function switchTab(tabName, btn) {
-      // 1. 更新按钮样式
       document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
       btn.classList.add('active');
 
-      // 2. 切换内容显示
       const mapFrame = document.getElementById('tab-map');
       const predictorFrame = document.getElementById('tab-predictor');
 
